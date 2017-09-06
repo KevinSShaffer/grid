@@ -8,10 +8,14 @@ using namespace std;
 
 int main()
 {
-	int x = getInput("Enter the 'X' dimension: "),
-		y = getInput("Enter the 'y' dimension: ");
+	int x = getInput("Enter the number of rows: "),
+		y = getInput("Enter the number of columns: ");
 
 	Grid grid(x, y);
+
+	cout << grid.ToString() << endl;
+
+	cin >> x;
 
 	return 0;
 }
@@ -27,5 +31,7 @@ int getInput(string question)
 		cin >> value;
 		cin.clear();
 		cin.ignore(256,'\n');
-	}	
+	}
+
+	return value;
 }
