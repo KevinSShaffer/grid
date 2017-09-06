@@ -2,7 +2,6 @@
 #include "grid.h"
 #include <vector>
 #include <string>
-#include <sstream>
 
 Grid::Grid(int rows, int cols) :
 	_vec(rows, std::vector<int>(cols))
@@ -22,9 +21,7 @@ std::string Grid::ToString()
 			it_y != it_x->end();
 			++it_y)
 		{
-	        std::ostringstream stm ;
-	        stm << *it_y;
-			output.append(stm.str());
+			output += *it_y + 48;
 		}
 
 		output.append("\n");
