@@ -39,3 +39,20 @@ std::string Grid::ToString()
 
 	return output;
 }
+void Grid::Randomize()
+{
+	for (std::vector< std::vector<int> >::iterator it_x = _vec.begin();
+		it_x != _vec.end();
+		++it_x)
+	{
+		for (std::vector<int>::iterator it_y = it_x->begin();
+			it_y != it_x->end();
+			++it_y)
+		{
+			if (rand() % 3 == 0)
+				*it_y = 1;
+			else
+				*it_y = 0;
+		}
+	}	
+}
