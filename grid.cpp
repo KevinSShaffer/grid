@@ -7,6 +7,7 @@
 Grid::Grid(int rows, int cols) :
 	_vec(rows, std::vector<int>(cols))
 {
+	// seed a RNG with current date time
 }
 
 std::string Grid::ToString()
