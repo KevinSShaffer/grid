@@ -41,6 +41,8 @@ std::string Grid::ToString()
 }
 void Grid::Randomize()
 {
+	/*  CHANGE THIS  */
+	// This needs to assign 1/3 of the elements
 	for (std::vector< std::vector<int> >::iterator it_x = _vec.begin();
 		it_x != _vec.end();
 		++it_x)
