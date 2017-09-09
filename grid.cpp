@@ -15,6 +15,11 @@ Grid::Grid(int rows, int cols, int seed) :
 {
 	srand(seed);	
 }
+Grid::Grid(vector< std::vector<int> > vec) :
+	_vec(vec)
+{
+	srand(time(0));
+}
 int Grid::getColumns() const
 {
 	return _columns;
@@ -49,7 +54,7 @@ void Grid::Randomize()
 		}
 	}	
 }
-std::string Grid::ToString()
+string Grid::ToString()
 {
 	std::string output;
 
@@ -73,21 +78,26 @@ std::string Grid::ToString()
 
 	return output;
 }
-Grid Grid::operator *(const Grid& grid2)
+Grid Grid::operator *(const Grid& grid2) const
 {
 	if (_rows != grid2.getRows() ||
 		_columns != grid2.getColumns())
 		return Grid(0, 0);
 
-	Grid grid3(_rows, _columns);
+	std::vector< vector<int> > vec(_rows, std::vector<int>(_columns));
 
 	for(int x = 0; x < _rows; x++)
 	{
 		for (int y = 0; y < _columns; y++)
 		{
-			grid3.setValue(x, y, _vec[x][y] * grid2.getValue(x, y));
+			// grid3.setValue(x, y, _vec[x][y] * grid2.getValue(x, y));
+			vec[x][y] = _vec[x][y] * grid2[x][y];
 		}
 	}
 
-	return grid3;
+	return Grid(vec);
+}
+vector<int> Grid::operator [](const int row) const
+{
+	return _vec[row];
 }

@@ -12,13 +12,15 @@ private:
 public:
 	Grid(int rows, int cols);
 	Grid(int rows, int cols, int seed);
+	Grid::Grid(vector< std::vector<int> > vec);
 	int getColumns() const;
 	int getRows() const;
 	int getValue(int x, int y) const;
 	void setValue(int x, int y, int value);
 	void Randomize();
 	std::string ToString();
-	Grid operator *(const Grid& grid2);
+	Grid operator *(const Grid& grid2) const;
+	std::vector<int> Grid::operator [](const int row) const;
 };
 
 #endif
