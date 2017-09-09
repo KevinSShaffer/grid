@@ -28,14 +28,6 @@ int Grid::getRows() const
 {
 	return _rows;
 }
-int Grid::getValue(int x, int y) const
-{
-	return _vec[x][y];
-}
-void Grid::setValue(int x, int y, int value)
-{
-	_vec[x][y] = value;
-}
 void Grid::Randomize()
 {
 	const int numCellsToChange = _rows * _columns / 3;

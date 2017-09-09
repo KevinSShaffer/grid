@@ -15,8 +15,6 @@ public:
 	Grid::Grid(vector< std::vector<int> > vec);
 	int getColumns() const;
 	int getRows() const;
-	int getValue(int x, int y) const;
-	void setValue(int x, int y, int value);
 	void Randomize();
 	std::string ToString();
 	Grid operator *(const Grid& grid2) const;
