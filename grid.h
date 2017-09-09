@@ -1,8 +1,8 @@
 #ifndef GRID_H
 #define GRID_H
-
 #include <vector>
 #include <string>
+#endif
 
 class Grid
 {
@@ -20,5 +20,3 @@ public:
 	Grid operator *(const Grid& grid2) const;
 	vector<int> operator [](const int row) const;
 };
-
-#endif

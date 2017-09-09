@@ -15,17 +15,22 @@ int main()
 	Grid grid1(x, y, time(0));
 	Grid grid2(x, y, time(0) + 9999);
 
+	cout << "Grid1 created" << endl;
 	cout << grid1.ToString() << endl << endl;
+	cout << "Grid2 created" << endl;
 	cout << grid2.ToString() << endl << endl;
 
 	grid1.Randomize();
 	grid2.Randomize();
 
+	cout << "Grid1 has been randomized" << endl;
 	cout << grid1.ToString() << endl << endl;
+	cout << "Grid2 had been randomized" << endl;
 	cout << grid2.ToString() << endl << endl;
 
 	Grid grid3 = grid1 * grid2;
 
+	cout << "Grid1 * Grid2 = " <<  endl;
 	cout << grid3.ToString() << endl << endl;
 
 	cout << "Press a key to exit: ";
@@ -33,7 +38,6 @@ int main()
 
 	return 0;
 }
-
 int getInput(string question)
 {
 	int value = 0;

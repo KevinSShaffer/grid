@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <time.h>
-#include <iostream>
 
 Grid::Grid(int rows, int cols) :
 	_vec(rows, std::vector<int>(cols)), _rows(rows), _columns(cols)
@@ -36,8 +35,9 @@ void Grid::Randomize()
 
 	while (cellsChanged < numCellsToChange)
 	{
-		int randRow = rand() % _rows,
-			randCol = rand() % _columns;
+		int randNum = rand() % (_rows * _columns), 
+			randRow = randNum / _columns,
+			randCol = randNum % _columns;
 		int& location = _vec[randRow][randCol];
 
 		if (location == 0)
