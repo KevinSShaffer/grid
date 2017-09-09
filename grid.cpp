@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <time.h>
+#include <iostream>
 
 Grid::Grid(int rows, int cols) :
 	_vec(rows, std::vector<int>(cols)), _rows(rows), _columns(cols)
