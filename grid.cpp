@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <time.h>
+#include <stdlib.h>
 
 Grid::Grid(int rows, int cols) :
 	_vec(rows, std::vector<int>(cols)), _rows(rows), _columns(cols)
@@ -15,7 +16,7 @@ Grid::Grid(int rows, int cols, int seed) :
 {
 	srand(seed);	
 }
-Grid::Grid(vector< std::vector<int> > vec) :
+Grid::Grid(std::vector< std::vector<int> > vec) :
 	_vec(vec)
 {
 	srand(time(0));
@@ -47,7 +48,7 @@ void Grid::Randomize()
 		}
 	}	
 }
-string Grid::ToString()
+std::string Grid::ToString()
 {
 	std::string output;
 
@@ -77,7 +78,7 @@ Grid Grid::operator *(const Grid& grid2) const
 		_columns != grid2.getColumns())
 		return Grid(0, 0);
 
-	std::vector< vector<int> > vec(_rows, std::vector<int>(_columns));
+	std::vector< std::vector<int> > vec(_rows, std::vector<int>(_columns));
 
 	for(int x = 0; x < _rows; x++)
 	{
@@ -90,7 +91,7 @@ Grid Grid::operator *(const Grid& grid2) const
 
 	return Grid(vec);
 }
-vector<int> Grid::operator [](const int row) const
+std::vector<int> Grid::operator [](const int row) const
 {
 	return _vec[row];
 }

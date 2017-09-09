@@ -1,3 +1,12 @@
+/********************************************************************
+*  Name        :  Kevin Shaffer
+*  Student ID  :  106069743
+*  Class       :  CSCI 2312-001        
+*  HW#         :  2     
+*  Due Date    :  Sep 12th, 2013
+*  Description :  Creates two grids, randomizes them both, and then
+				  multiplies them.
+********************************************************************/
 
 #include <iostream>
 #include <string>
