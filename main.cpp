@@ -21,6 +21,7 @@ int main()
 	int x = getInput("Enter the number of rows: "),
 		y = getInput("Enter the number of columns: ");
 
+	// create two grids with different time based seeds
 	Grid grid1(x, y, time(0));
 	Grid grid2(x, y, time(0) + 9999);
 

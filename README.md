@@ -50,7 +50,7 @@ Name:  grid.cpp
 *  Circumstances of programs
 *******************************************************
 
-   The program runs successfully.  
+   The program runs successfully.
    
    The program was developed using the sublime text
    editor and compiled using gcc version egcs-2.91.57.
