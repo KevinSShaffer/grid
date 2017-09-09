@@ -2,18 +2,16 @@
 #include "grid.h"
 #include <vector>
 #include <string>
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 Grid::Grid(int rows, int cols) :
-	_vec(rows, std::vector<int>(cols))
+	_vec(rows, std::vector<int>(cols)), _rows(rows), _columns(cols)
 {
 	// seed a RNG with current date time
 	srand(time(0));
 }
 Grid::Grid(int rows, int cols, int seed) :
-	_vec(rows, std::vector<int>(cols))
+	_vec(rows, std::vector<int>(cols)), _rows(rows), _columns(cols)
 {
 	srand(seed);	
 }
@@ -33,6 +31,9 @@ std::string Grid::ToString()
 			it_y != it_x->end();
 			++it_y)
 		{
+			if (it_y != it_x->begin())
+				output += " ";
+			
 			output += *it_y + 48;
 		}
 	}
@@ -41,20 +42,19 @@ std::string Grid::ToString()
 }
 void Grid::Randomize()
 {
-	/*  CHANGE THIS  */
-	// This needs to assign 1/3 of the elements
-	for (std::vector< std::vector<int> >::iterator it_x = _vec.begin();
-		it_x != _vec.end();
-		++it_x)
+	const int numCellsToChange = _rows * _columns / 3;
+	int cellsChanged = 0;
+
+	while (cellsChanged < numCellsToChange)
 	{
-		for (std::vector<int>::iterator it_y = it_x->begin();
-			it_y != it_x->end();
-			++it_y)
+		int randRow = rand() % _rows,
+			randCol = rand() % _columns;
+		int& location = _vec[randRow][randCol];
+
+		if (location == 0)
 		{
-			if (rand() % 3 == 0)
-				*it_y = 1;
-			else
-				*it_y = 0;
+			location = 1;
+			cellsChanged++;
 		}
 	}	
 }
