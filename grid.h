@@ -1,3 +1,5 @@
+#ifndef GRID_H
+#define GRID_H
 
 #include <vector>
 #include <string>
@@ -10,6 +12,13 @@ private:
 public:
 	Grid(int rows, int cols);
 	Grid(int rows, int cols, int seed);
-	std::string ToString();
+	int getColumns() const;
+	int getRows() const;
+	int getValue(int x, int y) const;
+	void setValue(int x, int y, int value);
 	void Randomize();
+	std::string ToString();
+	Grid operator *(const Grid& grid2);
 };
+
+#endif

@@ -15,30 +15,21 @@ Grid::Grid(int rows, int cols, int seed) :
 {
 	srand(seed);	
 }
-
-std::string Grid::ToString()
+int Grid::getColumns() const
 {
-	std::string output;
-
-	for (std::vector< std::vector<int> >::iterator it_x = _vec.begin();
-		it_x != _vec.end();
-		++it_x)
-	{
-		if (it_x != _vec.begin())
-			output.append("\n");
-
-		for (std::vector<int>::iterator it_y = it_x->begin();
-			it_y != it_x->end();
-			++it_y)
-		{
-			if (it_y != it_x->begin())
-				output += " ";
-			
-			output += *it_y + 48;
-		}
-	}
-
-	return output;
+	return _columns;
+}
+int Grid::getRows() const
+{
+	return _rows;
+}
+int Grid::getValue(int x, int y) const
+{
+	return _vec[x][y];
+}
+void Grid::setValue(int x, int y, int value)
+{
+	_vec[x][y] = value;
 }
 void Grid::Randomize()
 {
@@ -57,4 +48,46 @@ void Grid::Randomize()
 			cellsChanged++;
 		}
 	}	
+}
+std::string Grid::ToString()
+{
+	std::string output;
+
+	for (std::vector< std::vector<int> >::iterator it_x = _vec.begin();
+		it_x != _vec.end();
+		++it_x)
+	{
+		if (it_x != _vec.begin())
+			output.append("\n");
+
+		for (std::vector<int>::iterator it_y = it_x->begin();
+			it_y != it_x->end();
+			++it_y)
+		{
+			if (it_y != it_x->begin())
+				output += " ";
+
+			output += *it_y + 48;
+		}
+	}
+
+	return output;
+}
+Grid Grid::operator *(const Grid& grid2)
+{
+	if (_rows != grid2.getRows() ||
+		_columns != grid2.getColumns())
+		return Grid(0, 0);
+
+	Grid grid3(_rows, _columns);
+
+	for(int x = 0; x < _rows; x++)
+	{
+		for (int y = 0; y < _columns; y++)
+		{
+			grid3.setValue(x, y, _vec[x][y] * grid2.getValue(x, y));
+		}
+	}
+
+	return grid3;
 }

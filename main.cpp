@@ -24,6 +24,10 @@ int main()
 	cout << grid1.ToString() << endl << endl;
 	cout << grid2.ToString() << endl << endl;
 
+	Grid grid3 = grid1 * grid2;
+
+	cout << grid3.ToString() << endl << endl;
+
 	cout << "Press a key to exit: ";
 	cin >> x;
 
@@ -36,7 +40,7 @@ int getInput(string question)
 
 	// loop until user provides valid integer input 
 	while (!value)
-	{			
+	{
 		cout << question << endl;
 		cin >> value;
 		cin.clear();
@@ -45,4 +49,3 @@ int getInput(string question)
 
 	return value;
 }
-// add grid compare function
