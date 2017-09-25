@@ -41,7 +41,10 @@ int Grid::getRows() const
 void Grid::Randomize()
 {
 	// determine 1/3 of the cells (rounded down)
-	const int numCellsToChange = _rows * _columns / 3;
+	Randomize(numCellsToChange = _rows * _columns / 3)
+}
+void Grid::Randomize(const int numCellsToChange)
+{
 	int cellsChanged = 0;
 
 	// loop until 1/3 of the cells are changed

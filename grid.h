@@ -16,6 +16,7 @@ public:
 	int getColumns() const;
 	int getRows() const;
 	void Randomize();
+	void Randomize(const int numCellsToChange);
 	std::string ToString();
 	Grid operator *(const Grid& grid2) const;
 	std::vector<int> operator [](const int row) const;
